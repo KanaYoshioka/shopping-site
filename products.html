@@ -17,7 +17,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -114,22 +114,25 @@
                     </tr>
                     <tr>
                         <th>サイズ</th>
-                        <td>&#x2610;</td>
-                        <td>&#x2610;</td>
+                        <td><input type="checkbox" name="example" value="サイズ1"></td>
+                        <td><input type="checkbox" name="example" value="サイズ2"></td>
                     </tr>
                 </table>
             </div>
             <!-- product_color -->
             
             <div class="product_price">
-                <div class="price">
-                    <h2><img class="u-max-full-width" src="images/products/title_price.png" alt="価格"></h2>
-                    <p><span class="red">￥<span class="large">1,000</span></span>(tax in)</p>
+                <div class="product_gr">
+                    <div class="price">
+                        <h2><img class="u-max-full-width" src="images/products/title_price.png" alt="価格"></h2>
+                        <p><span class="red">￥<span class="large">1,000</span></span>(tax in)</p>
+                    </div>
+                    <div class="quantity">
+                        <h2><img class="u-max-full-width" src="images/products/title_quantity.png" alt="個数"></h2>
+                        <input type="number" name="number">
+                    </div>
                 </div>
-                <div class="quantity">
-                    <h2><img class="u-max-full-width" src="images/products/title_quantity.png" alt="個数"></h2>
-                    <input type="number" name="number">
-                </div>
+                <!-- product_gr -->
                 <div class="cart">
                     <img class="u-max-full-width" src="images/products/add_to_cart.png" alt="カートに追加">
                 </div>
