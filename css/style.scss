@@ -134,24 +134,14 @@ body {
 }
 
 #newitems,#popular {
-    padding-top: 45px;
-    margin: 30px 0;
-    
-    @include display-flex;
-    justify-content: flex-start;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    
-    background-image: url(../images/top_sp/title_new_item.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    
-    @media screen and (-webkit-min-device-pixel-ratio:2), (min-resolution: 2dppx) {
-        background-image: url("../images/top_sp/title_new_item@2x.png");
-        }
+
+    .items {
+        @include display-flex;
+        justify-content: flex-start;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
         
         .item {
-            @include flex(1 1 45%);
             background-color: #fff;
             padding: 7px;
             margin: 1px;
@@ -170,95 +160,112 @@ body {
                 margin: 0;
             }
         }
-        
-        @media (min-width: 550px) {
-            background-image: url(../images/top/title_newitems.png);
-            background-position: top center;
-            background-repeat: no-repeat;
-            
-            .item {
-                @include flex(1 1 30%);
-            }
-            
-        }
-        // min-width: 550px
-}
-// #newitems
-
-#popular {
-
-    background-image: url(../images/top_sp/title_popular.png);
-    background-position: top center;
-    background-repeat: no-repeat;
+    }
+    // .items 共通
     
-    @media screen and (-webkit-min-device-pixel-ratio:2), (min-resolution: 2dppx) {
-        background-image: url("../images/top_sp/title_popular@2x.png");
+    @media (max-width: 549px)  {
+        
+        h2.pc_title {
+            display: none;
         }
         
-        @media (min-width: 550px) {
-            background-image: url(../images/top/title_popular.png);
-            background-position: top center;
-            background-repeat: no-repeat;
+        h2.sp_title {
+            text-align: center;
+            margin-bottom: 10px;
         }
-        // min-width: 550px
+        
+        .item {
+            @include flex(1 1 45%);
+        }
+    }
+    // max-width: 549px
+    
+    @media (min-width: 550px) {
+        
+        h2.pc_title {
+            margin-bottom: 10px;
+        }
+        
+        h2.sp_title {
+            display: none;
+        }
+
+        .item {
+            @include flex(1 1 30%);
+        }
+        
+    }
+    // min-width: 550px
 }
-// #popular
+// #newitems,#popular
 
 #guide {
-    padding-top: 45px;
-    margin: 30px 0;
     
-    @include display-flex;
-    justify-content: flex-start;
-    @include flex-direction(column);
+    .guide_in {
+        @include flex(1);
+        background-color: #fff;
+        padding: 20px;
+        margin: 2px;
+        
+        h3 {
+            @include fontsize(18);
+            color: $brown;
+            font-weight: bold;
+        }
+        
+        h4 {
+            @include fontsize(15);
+            color: $brown;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+        
+        p {
+            @include fontsize(15);
+            margin-bottom: 10px;
+        }
+            
+        img {
+            margin-bottom: 10px;
+        }
+    }
+    // .guide_in 共通
 
-    background-image: url(../images/top_sp/title_guide.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    
-    @media screen and (-webkit-min-device-pixel-ratio:2), (min-resolution: 2dppx) {
-        background-image: url("../images/top_sp/title_guide@2x.png");
+    @media (max-width: 549px) {
+        
+        .guides {
+            @include display-flex;
+            justify-content: flex-start;
+            @include flex-direction(column);
+        }
+
+        h2.pc_title {
+            display: none;
         }
         
-        .guide_in {
-            @include flex(1);
-            background-color: #fff;
-            padding: 20px;
-            margin: 2px;
-            
-            h3 {
-                @include fontsize(18);
-                color: $brown;
-                font-weight: bold;
-            }
-            
-            h4 {
-                @include fontsize(15);
-                color: $brown;
-                font-weight: bold;
-                margin-bottom: 7px;
-            }
-            
-            p {
-                @include fontsize(15);
-                margin-bottom: 10px;
-            }
-            
-            img {
-                margin-bottom: 10px;
-            }
+        h2.sp_title {
+            text-align: center;
+            margin-bottom: 10px;
         }
+    }
+    // max-width: 549px
+
+    @media (min-width: 550px) {
         
-        @media (min-width: 550px) {
-            
-            background-image: url(../images/top/title_guide.png);
-            background-position: top center;
-            background-repeat: no-repeat;
-            
+        .guides {
             @include display-flex;
             justify-content: space-between;
             @include flex-direction(row);
         }
+
+        h2.pc_title {
+            margin-bottom: 10px;
+        }
+
+        h2.sp_title {
+            display: none;
+        }
+    }
 }
 // #guide
 
@@ -548,28 +555,14 @@ body {
 // #category_items
 
 #recent_pro {
-    padding-top: 45px;
-    margin: 30px 0;
     
-    @include clearfix;
-    
-    background-image: url(../images/list/title_recent_pro.png);
-    background-position: top center;
-    background-repeat: no-repeat;
-    
-    @media screen and (-webkit-min-device-pixel-ratio:2), (min-resolution: 2dppx) {
-        background-image: url("../images/list/title_recent_pro@2x.png");
-        }
-        
+        @include clearfix;
+
         .item {
             background-color: #fff;
             padding: 7px;
             margin: 1px;
             text-align: center;
-            
-            float: left;
-            width: 49%;
-            @include box-sizing(border-box);
             
             h3 {
                 @include fontsize(15);
@@ -584,15 +577,40 @@ body {
                 margin: 0;
             }
         }
+
+        @media (max-width: 549px) {
+            
+            h2.sp_title {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            h2.pc_title {
+                display: none;
+            }
+            
+            .item {
+                float: left;
+                width: 49%;
+                @include box-sizing(border-box);
+            }
+        }
+        // max-width: 549px
         
         @media (min-width: 550px) {
-            background-image: url(../images/list/recent_pro_pc.png);
-            background-position: top center;
-            background-repeat: no-repeat;
+
+            h2.sp_title {
+                display: none;
+            }
+            
+            h2.pc_title {
+                margin-bottom: 10px;
+            }
             
             .item {
                 float: left;
                 width: 32.7%;
+                @include box-sizing(border-box);
             }
             
         }
@@ -737,7 +755,7 @@ body {
                 @include fontsize(15);
             }
             
-            input[type=checkbox] {
+            input[type=radio] {
                 width: 18px;
                 height: 18px;
                 vertical-align: middle;
